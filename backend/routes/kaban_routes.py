@@ -21,7 +21,7 @@ async def getKanban(db: AsyncSession = Depends(get_db)):
     return await get_kanba(db)
 
 
-@routes.post('/taks/{name_stack}/{id_kanban}')
+@routes.post('/stack/{name_stack}/{id_kanban}')
 async def createTaks(name_stack:str, id_kanban:int, db: AsyncSession = Depends(get_db)):
     logging.info('POST CREATED TASK')
     return await create_stack(name_stack, id_kanban, db)
