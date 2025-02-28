@@ -57,7 +57,7 @@ async def get_all_stacks(db: AsyncSession):
         res = await db.execute(query)
         result = res.fetchall()
         logging.info('GET all stacks')
-        list_of_stacks = [{'id_stack':item[0], 'stack_name':item[1]} for item in result ]
+        list_of_stacks = [{'id_stack':item[0], 'stack_name':item[1],'id_kanban':item[2]} for item in result ]
         return JSONResponse(
             status_code = 200,
             content={

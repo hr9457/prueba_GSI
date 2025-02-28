@@ -28,7 +28,7 @@ async def create_task(name_task:str, desc: str, asigned_to:str, id_stack:int, db
 
 async def get_task(id_task:int, db:AsyncSession):
     try:
-        query = text(f"SELECT * FROM task WHERE id_task={id_task}")
+        query = text(f"SELECT * FROM taks WHERE id_task={id_task}")
         res = await db.execute(query)
         result = res.fetchone()
         print(result)
@@ -54,7 +54,7 @@ async def get_task(id_task:int, db:AsyncSession):
 
 async def task_asigned_to(id_stack:int, db:AsyncSession):
     try:
-        query = text(f"SELECT * FROM task WHERE id_stack={id_stack}")
+        query = text(f"SELECT * FROM taks WHERE id_stack={id_stack}")
         res = await db.execute(query)
         result = res.fetchall()
         print(result)

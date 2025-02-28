@@ -8,13 +8,13 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-host = os.getenv("DB_HOST")
-port = os.getenv("DB_PORT")
-name = os.getenv("DB_NAME")
-user = os.getenv("DB_USER")
-password = os.getenv("DB_PASSWORD")
+HOST = os.getenv("HOST")
+PORT = os.getenv("PORT")
+NAME = os.getenv("NAME")
+USER = os.getenv("USER")
+PASS = os.getenv("PASS")
 
-DATABASE_URL = f"postgresql+asyncpg://root:root@192.168.57.130:5432/mydatabase"
+DATABASE_URL = f"postgresql+asyncpg://{USER}:{PASS}@{HOST}:{PORT}/{NAME}"
 
 # asincrono
 engine = create_async_engine(DATABASE_URL, echo=True)
