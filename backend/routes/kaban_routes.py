@@ -47,7 +47,7 @@ async def createTask(name_task:str, desc:str, asigned_to:str, id_stack:int, db: 
 @routes.get('/get_task/{id_task}')
 async def getTask(id_task:int, db: AsyncSession = Depends(get_db)):
     logging.info('GET all task')
-    return await get_stack(id_task,db)
+    return await get_task(id_task,db)
 
 
 @routes.get('/task_asigned/{id_stack}')
