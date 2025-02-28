@@ -21,11 +21,11 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - USER = "root"
-      - PASS = "root"
-      - HOST = "192.168.122.128"
-      - PORT = 5432
-      - NAME = "mydatabase"
+      - USER="root"
+      - PASS="root"
+      - HOST="192.168.122.128"
+      - PORT=5432
+      - NAME="mydatabase"
     depends_on:
       - postgres
 
