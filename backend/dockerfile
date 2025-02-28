@@ -1,8 +1,8 @@
 FROM python:3.9
 
-WORKDIR /code
+WORKDIR /app
 
-COPY ./req.txt /code/req.txt
+COPY ./req.txt /app/req.txt
 
 RUN pip install --no-cache-dir --upgrade -r /code/req.txt
 
