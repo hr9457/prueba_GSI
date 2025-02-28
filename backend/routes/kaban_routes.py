@@ -5,6 +5,7 @@ import logging
 from database.db import get_db
 from controller.kanba_controller import create_kanban, get_kanba
 from controller.stack_controller import get_stack, create_stack, get_all_stacks
+from controller.task_controller import create_task, get_task, task_asigned_to
 
 routes = APIRouter()
 
@@ -35,6 +36,24 @@ async def getTaks(id_stack:int, db: AsyncSession = Depends(get_db)):
 async def getAllStacks(db: AsyncSession = Depends(get_db)):
     logging.info('GET all stacks')
     return await get_all_stacks(db)
+
+
+
+@routes.post('/task/{name_task}/{desc}/{asigned_to}/{id_stack}')
+async def createTask(name_task:str, desc:str, asigned_to:str, id_stack:int, db: AsyncSession = Depends(get_db)):
+    logging.info('GET all task')
+    return await create_task(name_task,desc,asigned_to,id_stack,db)
+
+@routes.get('get_task/{id_task}')
+async def getTask(id_task:int, db: AsyncSession = Depends(get_db)):
+    logging.info('GET all task')
+    return await get_stack(id_task,db)
+
+
+@routes.get('/task_asigned/{id_stack}')
+async def taskAsignedTo(id_stack:int,db: AsyncSession = Depends(get_db) ):
+    logging.info('GET all tasks')
+    return await task_asigned_to(id_stack, db)
 
 
 @routes.get("/test_session")
